@@ -1,6 +1,6 @@
 [project]
 name = "gora"
-version = "0.0.1"
+version = "0.0.5"
 authors = [
   { name="Gora", email="communications@gora.io" },
 ]
@@ -16,6 +16,8 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: POSIX :: Linux",
 ]
+[tool.setuptools.package-data]
+gora = [ "main-contract.json" ]
 
 [project.urls]
 Homepage = "https://gora.io/"
