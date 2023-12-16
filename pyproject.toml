@@ -10,7 +10,7 @@ requires-python = ">=3.10"
 dependencies = [
   "beaker",
 ]
-keywords = [ "gora", "oracle", "algorand", "blockchain" ]
+keywords = [ "gora", "algorand", "blockchain oracle", "blockchain" ]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
