@@ -32,6 +32,7 @@ cli_tool_ver = get_env("GORA_DEV_VER", "latest-release")
 cli_tool_url = f'https://download.gora.io/{cli_tool_ver}/linux/gora'
 cli_tool_path = get_env("GORA_DEV_CLI_TOOL", "./gora_cli")
 cfg_path = get_env("GORA_DEV_CONFIG_FILE", "./.gora")
+dev_node_docker_name = "gora-nr-dev"
 
 gora_token_deposit_amount = int(get_env("GORA_DEV_TOKEN_DEPOSIT", 10_000_000_000))
 gora_algo_deposit_amount = int(get_env("GORA_DEV_ALGO_DEPOSIT", 10_000_000_000))
@@ -540,12 +541,15 @@ def get_ora_value(algod_client, app_id, addr, key_name = "last_oracle_value",
         if (value_vars):
             value = base64.b64decode(value_vars[0]["value"]["bytes"])
             return value
+
+
 """
 Return true if dev NR container is running, false otherwise.
 """
 def is_dev_nr_running():
-    output = run_cli("docker-status", [], { "GORA_CONFIG_FILE": cfg_path })
-    return bool(re.search("\nRunning\n$", output))
+    cmd = [ "docker", "ps", "--filter", "name=" + dev_node_docker_name,
+            "--format", "Aha" ]
+    return bool(subprocess.check_output(cmd))
 
 """
 Run Gora CLI tool.
