@@ -1,6 +1,6 @@
 [project]
 name = "gora"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
   { name="Gora", email="communications@gora.io" },
 ]
@@ -8,7 +8,7 @@ description = "Gora Decentralized Oracle utility functions"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-  "beaker",
+  "beaker-pyteal",
 ]
 keywords = [ "gora", "algorand", "blockchain oracle", "blockchain" ]
 classifiers = [
