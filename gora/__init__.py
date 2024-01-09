@@ -8,12 +8,20 @@ import time
 import struct
 import json
 import subprocess
+import enum
 import pyteal as pt
 import beaker as bk
 import algosdk as asdk
 
 from typing import Literal as L
 from .inline import InlineAssembly
+
+# Aggregation values
+class Aggr(enum.IntEnum):
+    NONE = 0
+    MIN = 1
+    MAX = 2
+    AVG = 3
 
 """
 Return environment variable value or a default if it's not defined.
